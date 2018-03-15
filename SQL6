@@ -1,0 +1,18 @@
+show databases;
+use classicmodels;
+show tables;
+
+# Cau 1
+select city,count(*) as 'Numbers of Customer' from customers group by city;
+
+# Cau 2
+select count(*) as 'T3' from orders where year(orderDate)=2005 and month(orderDate)=3;
+
+# Cau 3
+select orderNumber,sum(priceEach) as 'sum' from orderDetails group by orderNumber order by sum desc limit 10; 
+
+# Cau 4
+select productLine,sum(quantityInStock) as 'sum' from products group by productLine;
+
+# Cau 5
+select customerNumber, sum(amount) as 'sum amount' from payments group by customerNumber;
