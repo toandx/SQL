@@ -1,0 +1,19 @@
+show databases;
+use classicmodels;
+show tables;
+select * from products;
+
+# Cau 1
+select substring(productDescription,1,50) as 'Title of products' from products;
+
+# Cau 2
+select concat(firstName,' ',lastName) as Fullname,jobTitle from employees; 
+
+# Cau 3
+select * from products;
+
+# Cau 4
+select * from orders where shippedDate is not null order by datediff(shippedDate,requiredDate) asc limit 5;
+
+# Cau 5
+select * from orders where YEAR(orderDate)=2005 and month(orderDate)=5 and shippedDate is null;
