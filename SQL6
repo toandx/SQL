@@ -7,6 +7,7 @@ select city,count(*) as 'Numbers of Customer' from customers group by city;
 
 # Cau 2
 select count(*) as 'T3' from orders where year(orderDate)=2005 and month(orderDate)=3;
+select month(orderDate) as THANG,count(*) as SODONHANG from orders where YEAR(orderDate)=2005 group by THANG;
 
 # Cau 3
 select orderNumber,sum(priceEach) as 'sum' from orderDetails group by orderNumber order by sum desc limit 10; 
