@@ -1,0 +1,25 @@
+show databases;
+use classicmodels;
+show tables;
+# Cau 1 
+select concat(firstName,' ',lastName) as 'Full Name', officeCode from employees;
+
+# Cau 2
+select products.productName,products.productCode,orderdetails.productCode,orderdetails.orderNumber
+from products left join orderdetails on products.productCode=orderdetails.productCode
+where orderNumber is null;
+
+# Cau 3
+select c.orderNumber,sum(p.priceEach) from orders c 
+inner join orderdetails p on c.orderNumber=p.orderNumber
+where month(orderDate)=3 and year(orderDate)=2003
+group by orderNumber;
+
+# Cau 4
+select productline,sum(quantityInStock) from products group by productLine;
+
+# Cau 5
+select c.customerNumber, c.customerName as 'Name', sum(p.amount) 
+from customers c
+inner join payments p on c.customerNumber=p.customerNumber
+group by customerNumber;
