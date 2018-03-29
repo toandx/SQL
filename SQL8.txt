@@ -1,0 +1,18 @@
+show databases;
+use classicmodels;
+show tables;
+select * from orderdetails;
+select * from orders;
+select od.orderNumber,o.orderNumber,od.productCode,o.orderDate
+from orders o
+inner join orderdetails od on od.orderNumber=o.orderNumber
+where month(o.orderDate)=3 and year(o.orderDate)=2005;
+
+# Cau 3
+select *,(od.priceEach*od.quantityOrdered) as 'SUM' from orders o 
+inner join orderdetails od on o.orderNumber=od.orderNumber;
+
+# Cau 4
+select c.customerName, c.creditLimit,sum(payment from customers c
+inner join payments p on p.customerNumber=c.customerNumber
+group by c.customerNumber;
